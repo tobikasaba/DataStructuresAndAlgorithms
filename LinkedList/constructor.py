@@ -36,17 +36,40 @@ class LinkedList:
         self.tail = prev
         self.tail.next = None
         self.length -= 1
+        # if self.length is = 0 after popping the last value
         if self.length == 0:
             popped_node = temp
             self.head = None
             self.tail = None
         return popped_node.value
 
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            # self.head = None # this is redundant because there is only one node in the list,
+            # and we have yet set the value of head to none earlier
+            self.tail = None
+        return temp
+
     def prepend(self, value):
         # create a new node
         new_node = Node(value)
+
         # add Node to the beginning
-        pass
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+            self.tail.next = None
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
 
     def insert(self, index, value):
         # create a new node
@@ -69,10 +92,12 @@ class Node:
         self.next = None
 
 
-test = LinkedList(1)
-test.append(2)
+test = LinkedList(2)
+test.append(3)
+test.prepend(1)
 test.print_list()
-print("---------")
-print("Popped value is ", test.pop())
-print("Popped value is", test.pop())
-test.print_list()
+
+print(test.pop_first())
+print(test.pop_first())
+print(test.pop_first())
+print(test.pop_first())
