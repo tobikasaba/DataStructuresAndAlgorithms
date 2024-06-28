@@ -71,6 +71,23 @@ class LinkedList:
         self.length += 1
         return True
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        # temp = self.head
+        # prev = self.head
+        # counter = 0
+        # while counter != index:
+        #     prev = temp
+        #     temp = temp.next
+        #     counter += 1
+        # return prev
+
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
     def insert(self, index, value):
         # create a new node
         # insert the node at a desired index
@@ -95,9 +112,7 @@ class Node:
 test = LinkedList(2)
 test.append(3)
 test.prepend(1)
-test.print_list()
-
-print(test.pop_first())
-print(test.pop_first())
-print(test.pop_first())
-print(test.pop_first())
+# test.print_list()
+print(test.get(0))
+for i in range(1):
+    print("i", i)
