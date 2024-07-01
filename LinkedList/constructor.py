@@ -105,10 +105,11 @@ class LinkedList:
         return False
 
     def insert(self, index, value):
-        # create a new node
+        # this allows for index == to the length because the last node at (index-1) points to none
         if index < 0 or index > self.length:
-            return None
+            return False
         if index == 0:
+            # i.e. linkedlist.prepend hence running it on the particular instance of linked list
             return self.prepend(value)
         if index == self.length:
             return self.append(value)
@@ -118,6 +119,21 @@ class LinkedList:
         temp.next = new_node
         self.length += 1
         return True
+
+    def remove(self, index):
+        print("length", self.length)
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        prev = self.get(index - 1)
+        temp = prev.next  # more efficient than using self.get(index)
+        prev.next = temp.next  # more efficient than using self.get(index + 1)
+        temp.next = None
+        self.length -= 1
+        return temp
 
     def print_list(self):
         temp = self.head
@@ -139,4 +155,7 @@ test = LinkedList(2)
 test.append(3)
 test.prepend(1)
 test.insert(1, 1.5)
+test.print_list()
+print("---------------")
+print(test.remove(2))
 test.print_list()
