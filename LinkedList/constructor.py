@@ -41,7 +41,7 @@ class LinkedList:
             popped_node = temp
             self.head = None
             self.tail = None
-        return popped_node.value
+        return popped_node
 
     def pop_first(self):
         if self.length == 0:
@@ -121,7 +121,6 @@ class LinkedList:
         return True
 
     def remove(self, index):
-        print("length", self.length)
         if index < 0 or index >= self.length:
             return None
         if index == 0:
@@ -134,6 +133,19 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp
+
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+        return True
 
     def print_list(self):
         temp = self.head
@@ -158,4 +170,7 @@ test.insert(1, 1.5)
 test.print_list()
 print("---------------")
 print(test.remove(2))
+test.print_list()
+print("---------------")
+test.reverse()
 test.print_list()
