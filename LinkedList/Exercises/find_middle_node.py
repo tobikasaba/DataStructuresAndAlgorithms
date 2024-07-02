@@ -52,4 +52,8 @@ my_linked_list.append(6)
 my_linked_list.append(7)
 my_linked_list.append(8)
 
+time_1 = timeit.timeit(lambda: my_linked_list.find_middle_node().value, number=1000)
+time_2 = timeit.timeit(lambda: my_linked_list.find_middle_node_two().value, number=1000)
+
 print(my_linked_list.find_middle_node().value)
+print(f"The timing of the functions are, function one: {time_1} and function two: {time_2}")
