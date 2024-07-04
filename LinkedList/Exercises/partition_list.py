@@ -44,7 +44,6 @@ class LinkedList:
         current_node = self.head
 
         while current_node is not None:
-            print("see")
             if current_node.value < x:
                 prev_1.next = current_node
                 prev_1 = current_node
