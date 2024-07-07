@@ -32,26 +32,62 @@ class LinkedList:
         self.head = None
         self.length = 0
 
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+        return True
+
     def reverse_between(self, start_index, end_index):
-        if self.head == None or self.length == 1:
+        # return None if the linked list is empty or has only one node
+        if self.head is None or self.length == 1:
             return None
 
+        dummy_node = Node(0)
+        dummy_node.next = self.head
+        prev_node = dummy_node
 
-        break_point = None
-        start_node = None
-        end_node = None
-        current_node = self.head
+        for _ in range(start_index):
+            prev_node = prev_node.next
 
-        while end_node is None:
-        for i in range(self.length):
-            if i == start_index:
-                start_node = current_node
+        current_node = prev_node.next
 
-            elif i == end_index:
-                end_node = current_node
-            else:
-                break_point = current_node
-            current_node = current_node.next
+        for _ in range(end_index - start_index):
+            node_to_move = current_node.next
+            current_node.next = node_to_move.next
+            node_to_move.next = prev_node.next
+            prev_node.next = node_to_move
+
+        self.head = dummy_node.next
+        # # break_point = None
+        # # start_node = None
+        # # end_node = None
+        # # prev_node = None
+        # # current_node = self.head
+        # # after = current_node.next
+        #
+        #
+        #
+        # for i in range(self.length):
+        #     if i == start_index:
+        #         start_node = current_node
+        #     elif i == end_index:
+        #         end_node = current_node
+        #
+        #     # else:
+        #     #     break_point = current_node
+        #     prev_node = current_node
+        #     current_node = current_node.next
+        #
+        # for i in range(start_index, end_index+1)
+        #     start_index
 
 
 linked_list = LinkedList(1)
