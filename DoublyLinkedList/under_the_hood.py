@@ -1,4 +1,4 @@
-from constructor import LinkedList, Node
+from constructor import DoublyLinkedList, Node
 
 head = {
     "value": 11,
@@ -11,7 +11,7 @@ head = {
                 "next": {
                     "value": 4,
                     "next": None,
-                    "prev": None
+                    # "prev": "links bck to the previous node until self.head == None"
                 }
             }
         }
@@ -23,10 +23,10 @@ print(head["next"]["next"]["value"])
 
 print("---------------------------")
 # the syntax for a linked list
-my_linked_list = LinkedList(4)
+my_linked_list = DoublyLinkedList(4)
 print(my_linked_list.head.value)
 print(my_linked_list.tail.value)
 
-my_linked_list = LinkedList(1)
+my_linked_list = DoublyLinkedList(1)
 my_linked_list.append(2)
 my_linked_list.print_list()
