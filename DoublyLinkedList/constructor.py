@@ -87,6 +87,31 @@ class DoublyLinkedList:
                 temp = temp.next
         return temp
 
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
+        new_node.prev = before
+        new_node.next = after
+        before.next = new_node
+        after.prev = new_node
+        self.length += 1
+        return True
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -115,3 +140,6 @@ second_dll.append(4)
 second_dll.append(5)
 print("-------")
 print(second_dll.get(4))
+print("-------")
+second_dll.insert(3, 18)
+second_dll.print_list()
