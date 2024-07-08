@@ -69,6 +69,24 @@ class DoublyLinkedList:
         self.length -= 1
         return temp
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index > self.length // 2:
+            temp = self.tail
+            # for _ in range((self.length - 1) - index):
+            # this tells the for loop to decrease by one
+            # essentially starting the loop from the end of the linkedlist
+            # e.g. if length = 10 and index = 3
+            # range (9, 6) decreasing by one so its 9,8,7
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+        return temp
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -89,3 +107,11 @@ my_dll.print_list()
 print("-------")
 my_dll.pop_first()
 my_dll.print_list()
+
+second_dll = DoublyLinkedList(6)
+second_dll.append(7)
+second_dll.append(8)
+second_dll.append(4)
+second_dll.append(5)
+print("-------")
+print(second_dll.get(4))
