@@ -1,3 +1,9 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
 class LinkedList:
     # each node is an instance of new node which has a value and next attribute.
     # this makes setting the next value of each node possible
@@ -155,12 +161,6 @@ class LinkedList:
             # for example, when a new node is instantiated, the value of the node is specified
             # and the value of the next attribute
             temp = temp.next
-
-
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
 
 
 test = LinkedList(2)

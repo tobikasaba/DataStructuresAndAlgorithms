@@ -66,28 +66,6 @@ class LinkedList:
             prev_node.next = node_to_move
 
         self.head = dummy_node.next
-        # # break_point = None
-        # # start_node = None
-        # # end_node = None
-        # # prev_node = None
-        # # current_node = self.head
-        # # after = current_node.next
-        #
-        #
-        #
-        # for i in range(self.length):
-        #     if i == start_index:
-        #         start_node = current_node
-        #     elif i == end_index:
-        #         end_node = current_node
-        #
-        #     # else:
-        #     #     break_point = current_node
-        #     prev_node = current_node
-        #     current_node = current_node.next
-        #
-        # for i in range(start_index, end_index+1)
-        #     start_index
 
 
 linked_list = LinkedList(1)

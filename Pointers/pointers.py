@@ -4,8 +4,8 @@ num_1 = 11
 num_2 = num_1
 
 print("Before num_2 values is updated:")
-print(("num_1 = ", num_1))
-print(("num_2 = ", num_2))
+print("num_1 = ", num_1)
+print("num_2 = ", num_2)
 
 # this prints the address where num 1 and num 2 are stored
 print("\nnum1 points to:", id(num_1))
@@ -13,9 +13,9 @@ print("num2 points to:", id(num_2))
 
 # num_1  and num_ 2 have different values, then they have different values in memory
 num_2 = 22
-print("Before num_2 values is updated:")
-print(("num_1 = ", num_1))
-print(("num_2 = ", num_2))
+print("\nAfter num_2 values is updated:")
+print("num_1 = ", num_1)
+print("num_2 = ", num_2)
 
 # this prints the address where num 1 and num 2 are stored
 print("\nnum1 points to:", id(num_1))
@@ -25,7 +25,7 @@ print("num2 points to:", id(num_2))
 dict_1 = {"value": 11}
 dict_2 = dict_1
 
-print("Before num_2 values is updated:")
+print("\nBefore num_2 values is updated:")
 print(("dict_1 = ", dict_1))
 print(("dict_2 = ", dict_2))
 
@@ -34,7 +34,7 @@ print("num2 points to:", id(dict_2))
 
 # still points to the same address in memory because the value in the dictionary was changed not the dictionary itself
 # Dictionaries are mutable, hence the value in the dictionary has changed
-dict_2["value"]= 22
+dict_2["value"] = 22
 print(("dict_1 = ", dict_1))
 print(("dict_2 = ", dict_2))
 
