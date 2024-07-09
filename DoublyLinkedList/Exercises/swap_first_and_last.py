@@ -36,7 +36,7 @@ class DoublyLinkedList:
         head = self.head.value
         self.head.value = self.tail.value
         self.tail.value = head.value
-    
+
     def swap_first_last_solution_two(self):
         if self.head is None or self.head == self.tail:
             return
@@ -55,20 +55,3 @@ my_doubly_linked_list.swap_first_last()
 
 print('\nDLL after swap_first_last():')
 my_doubly_linked_list.print_list()
-
-"""
-    EXPECTED OUTPUT:
-    ----------------
-    DLL before swap_first_last():
-    1
-    2
-    3
-    4
-
-    DLL after swap_first_last():
-    4
-    2
-    3
-    1
-
-"""
