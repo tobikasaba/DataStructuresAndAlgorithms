@@ -31,23 +31,14 @@ class DoublyLinkedList:
         return True
 
     def reverse(self):
-        if self.head is None:
-            return None
-        current_node = self.head
-        before = current_node.prev
-        after = current_node.next
-        temp = current_node
-        for _ in range(self.length):
-            if temp.next is not None:
-                temp = temp.next
-            current_node.prev = after
-            current_node.next = before
-            current_node = temp
-            after = current_node.next
-            before = current_node.prev
-
-        self.tail = self.head
-        self.head = temp
+        temp = self.head
+        while temp is not None:
+            # swap the prev and next pointers of node points to
+            temp.prev, temp.next = temp.next, temp.prev
+            # move to the next node
+            temp = temp.prev
+        # swap the head and tail pointers
+        self.head, self.tail = self.tail, self.head
 
 
 my_doubly_linked_list = DoublyLinkedList(1)
