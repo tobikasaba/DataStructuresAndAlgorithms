@@ -34,19 +34,33 @@ class MaxHeap:
         max_value = self.heap[0]
         # set the last value in the heap as the head of the heap
         self.heap[0] = self.heap.pop()
+        # move the current heap head value to its correct position
         self._sink_down(0)
         return max_value
 
     def _sink_down(self, index):
         max_index = index
         while True:
+            # these find the index of a node in the heap (list) but does not assign a node to these variables
             left_index = self._left_child(index)
             right_index = self._right_child(index)
 
-            if (left_index < len(self.heap) and self.heap[left_index] > self.heap[max_index]):
+            # this checks if the left_index is less than the length of the list
+            # if it isn't, then there is no node at that index in the list
+            # this also checks if the value at the specified index is greater than the value at the current max_index
+            if (left_index < len(self.heap) and
+                    self.heap[left_index] > self.heap[max_index]):
                 max_index = left_index
-            if (right_index < len(self.heap) and self.heap[right_index] > self.heap[max_index]):
+
+            # this checks if the right_index is less than the length of the list
+            # if it isn't, then there is no node at that index in the list
+            # this also checks
+            # if the value at the specified index is greater than the value at the current max_index
+            if (right_index < len(self.heap) and
+                    self.heap[right_index] > self.heap[max_index]):
                 max_index = right_index
+
+            # if max_index and the current index are different, swap the position of the values
             if max_index != index:
                 self._swap(index, max_index)
                 index = max_index
@@ -60,13 +74,13 @@ my_heap.insert(72)
 my_heap.insert(61)
 my_heap.insert(58)
 print(my_heap.heap)
-print("------------------")
+print("--------Inserting a value----------")
 my_heap.insert(100)
 print(my_heap.heap)
-print("------------------")
+print("--------Inserting a value----------")
 my_heap.insert(75)
 print(my_heap.heap)
-print("------------------")
+print("-----Removing a value-------------")
 my_heap = MaxHeap()
 my_heap.insert(95)
 my_heap.insert(75)
